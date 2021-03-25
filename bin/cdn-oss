@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+const commander = require('commander')
+const path = require('path')
+const fs = require('fs')
+const run = require('../src/index.js');
+
+commander
+    .version('1.1.11')
+
+commander.on('--help', function() {
+    console.log('');
+    console.log('  Basic Examples:');
+    console.log('    Start a job using a config :');
+    console.log('    $ cnd start ./config.json');
+    console.log('');
+});
+
+commander.command('start [configPath]')
+    .action(function(config) {
+        const data = JSON.parse(fs.readFileSync(path.resolve(config), { encoding: 'utf-8' }))
+        if (Array.isArray(data)) {
+          data.reduce(function(promise, item) {
+            return promise.then(function() {
+                return run(item)
+            }).catch(function() {
+                return run(item)
+            })
+          }, Promise.resolve()).then(function() {
+            console.log('finish queue')
+            process.exit(0)
+          }).catch(function(err) {
+              console.log('err:', err)
+          })
+        } else {
+          run(data).then(function() {
+            process.exit(0)
+          })
+        }
+    })
+
+commander.command('*')
+  .action(function() {
+    console.log('\nCommand not found');
+  });
+
+commander.parse(process.argv);

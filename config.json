@@ -1,0 +1,13 @@
+[{
+    "output": "./dist",
+    "key": "test/cdn-oss",
+    "accessKeyId": "LTAI4Fi2mEi123456789",
+    "accessKeySecret": "pgKrpo8cq7cxQXVP6vfk123445678889999",
+    "bucket": "image-japan/sitecdn/",
+    "region": "oss-ap-northeast-1",
+    "dstUrl": "https://domain/sitecdn/",
+    "tinify": true
+}, {
+    "output": "./dist",
+    "key": "test/cdn-oss"
+}]

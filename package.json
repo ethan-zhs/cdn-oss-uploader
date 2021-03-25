@@ -1,0 +1,29 @@
+{
+  "name": "cdn-oss",
+  "version": "1.1.11-2",
+  "description": "阿里云cdn",
+  "main": "bin/cdn-oss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "cdn-oss": "bin/cdn-oss"
+  },
+  "publishConfig": {
+    "registry": "http://xx.xx.xx.xx:4873"
+  },
+  "dependencies": {
+    "commander": "^2.13.0",
+    "crypto": "^1.0.1",
+    "dateformat": "^3.0.2",
+    "imagemin": "^5.3.1",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^5.0.1",
+    "is-type-of": "^1.2.0",
+    "mime": "^2.2.0",
+    "progress": "^2.0.0",
+    "request": "^2.83.0"
+  }
+}
